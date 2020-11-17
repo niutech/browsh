@@ -26,6 +26,7 @@
     "webpack-cli": "^3.3.4"
   },
   "dependencies": {
+    "html2canvas": "^1.0.0-rc.7",
     "lodash": "^4.17.19",
     "string-width": "^2.1.1"
   }

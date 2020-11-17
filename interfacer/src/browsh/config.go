@@ -15,14 +15,14 @@ import (
 var (
 	configFilename = "config.toml"
 
-	isDebug   = pflag.Bool("debug", false, "Log to ./debug.log")
+	isDebug   = pflag.Bool("debug", true, "Log to ./debug.log")
 	timeLimit = pflag.Int("time-limit", 0, "Kill Browsh after the specified number of seconds")
 	_         = pflag.Bool("http-server-mode", false, "Run as an HTTP service")
 
 	_ = pflag.String("startup-url", "https://www.brow.sh", "URL to launch at startup")
-	_ = pflag.String("firefox.path", "firefox", "Path to Firefox executable")
-	_ = pflag.Bool("firefox.with-gui", false, "Don't use headless Firefox")
-	_ = pflag.Bool("firefox.use-existing", false, "Whether Browsh should launch Firefox or not")
+	_ = pflag.String("chromium.path", "chromium-browser", "Path to chromium executable")
+	_ = pflag.Bool("chromium.with-gui", true, "Don't use headless Chromium")
+	_ = pflag.Bool("chromium.use-existing", true, "Whether Browsh should launch Chromium or not")
 	_ = pflag.Bool("monochrome", false, "Start browsh in monochrome mode")
 	_ = pflag.Bool("name", false, "Print out the name: Browsh")
 )

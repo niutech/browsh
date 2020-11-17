@@ -1,4 +1,5 @@
 import utils from "utils";
+import html2canvas from "html2canvas";
 
 import CommonMixin from "dom/common_mixin";
 
@@ -187,7 +188,7 @@ export default class extends utils.mixins(CommonMixin) {
 
   // Get an array of RGB values.
   // This is Firefox-only. Chrome has a nicer MediaStream for this.
-  _getPixelData() {
+  async _getPixelData() {
     let width, height;
     const background_colour = "rgb(255,255,255)";
     if (this._is_scaled) {
@@ -201,6 +202,8 @@ export default class extends utils.mixins(CommonMixin) {
       return [];
     }
     this._updateCanvasSize();
+    await html2canvas(document.body, {canvas: this._screenshot_canvas});
+/*
     this._screenshot_ctx.drawWindow(
       window,
       this.dimensions.dom.sub.left,
@@ -209,6 +212,7 @@ export default class extends utils.mixins(CommonMixin) {
       this.dimensions.dom.sub.height,
       background_colour
     );
+*/
     return this._screenshot_ctx.getImageData(0, 0, width, height);
   }
 
